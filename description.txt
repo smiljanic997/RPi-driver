@@ -2,8 +2,10 @@ The "device" this driver controls consists of 4 LEDs and 2 push buttons.
 LEDs are connected to pins 31(in code GPIO_06), 33(GPIO_13), 35(GPIO_19) and 37(GPIO_26),
 while push buttons are connected to pins 5(GPIO_03) and 15(GPIO_22).
 
-Device has the stopwatch functionallity:
+Device has the stopwatch functionality(implemented in gpio_driver.c).
 Push button PB0 starts the stopwatch if it is stopped or paused,
 Push button PB1 pauses the stopwatch if it is running or resets it if it is stopped.
 LEDs change its state every second, starting from all OFF to all ON, meanwhile representing
 numbers from 0 to 15 in binary.
+
+main.c represents a test application, that prints stopwatch state on a console.
