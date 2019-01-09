@@ -146,7 +146,7 @@ static int gpio_driver_release(struct inode *, struct file *);
 static ssize_t gpio_driver_read(struct file *, char *buf, size_t , loff_t *);
 static ssize_t gpio_driver_write(struct file *, const char *buf, size_t , loff_t *);
 
-#define DRIVER_AUTHOR   "SS 1104/16"
+#define DRIVER_AUTHOR   "Slaven Smiljanic"
 
 struct _stopwatch
 {
@@ -286,17 +286,17 @@ void SetInternalPullUpDown(char pin, PUD pull)
        to remove the current Pull-up/down). */
     iowrite32(pull, virt_gpio_base + gppud_offset);
 
-    /* Wait 150 cycles – this provides the required set-up time for the control signal */
+    /* Wait 150 cycles â€“ this provides the required set-up time for the control signal */
 
     /* Write to GPPUDCLK0/1 to clock the control signal into the GPIO pads you wish to
-       modify – NOTE only the pads which receive a clock will be modified, all others will
+       modify â€“ NOTE only the pads which receive a clock will be modified, all others will
        retain their previous state. */
     tmp = ioread32(virt_gpio_base + gppudclk_offset);
     mask = 0x1 << pin;
     tmp |= mask;
     iowrite32(tmp, virt_gpio_base + gppudclk_offset);
 
-    /* Wait 150 cycles – this provides the required hold time for the control signal */
+    /* Wait 150 cycles â€“ this provides the required hold time for the control signal */
 
     /* Write to GPPUD to remove the control signal. */
     iowrite32(PULL_NONE, virt_gpio_base + gppud_offset);
