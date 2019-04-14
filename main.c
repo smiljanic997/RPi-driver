@@ -42,7 +42,7 @@ void* function(void* param)
 
 void* get_input(void* param)
 {
-    while(!done)
+    while(done != ESC)
     {
 	done = getch();
     }
